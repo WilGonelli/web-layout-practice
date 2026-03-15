@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(39, 39, 61);
+    height: 100vh;
+}
+
+.btn{
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(1, 107, 230);
+    border-radius: 12px;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 200px;
+    height: 40px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    position: relative;
+}
+
+@property --deg{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.btn::after, .btn::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient( from var(--deg), rgb(89, 230, 255),  transparent 15%, transparent 85%,  rgb(89, 230, 255)    );
+    animation: 3s spin linear infinite;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 2px;
+    background-color: brown;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    -webkit-animation: 4s spin linear infinite;
+}
+
+.btn::before{
+    filter: blur(1.5rem) !important;
+    -webkit-filter: blur(1.5rem) !important;
+    opacity: .4;
+}
+
+@keyframes spin{
+    from{
+        --deg: 0deg;
+    }
+    to{
+        --deg: 360deg;
+    }
+}
